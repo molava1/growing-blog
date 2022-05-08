@@ -1,40 +1,42 @@
 #My_Home_Page.2
-def main(*complete_template):
 
-#Opening base template htmls 
+#Creating base template htmls 
+def template(*building_page_template):
+    
     top_template = open('./templates/top.html').read()
     bottom_template = open('./templates/bottom.html').read()
     
     base = top_template + bottom_template
     open('base.html', 'w+').write(base)
   
-#replacing title and content in base template
+#replacing content in base template
     template = open('./templates/base.html').read()
     index_content = open('./content/index.html').read() 
      
     finished_index_page = template.replace( '{{content}}', index_content)
     open ('docs/index.html','w+').write(finished_index_page)
  
-    return template
+    return template 
     
-main()
+template ()
 
-def content_pages():   
+def main():   
 
     content = open('./content/index.html').read()
-    index_html = main(content) 
+    index_html = template(content) 
     open('index.html', 'w+').write(index_html)
     
     about_me = open('./content/about_me.html').read()
-    about_me_html = main(about_me)
+    about_me_html = template(about_me)
     open('about_me.html', 'w+').write(str(about_me_html))
 
     contact_me = open('./content/contact_me.html').read()
-    contact_me_html = main(contact_me)
+    contact_me_html = template(contact_me)
     open('contact_me.html', 'w+').write(str(contact_me_html))
     
 
-content_pages()
+main()
+
 
 #So this code grows your sitek data by adding multiple sets [LISTS].
 def growing_pages():
@@ -55,12 +57,10 @@ def growing_pages():
     "title": "Ring Ring",
     },
     ]
-    print(pages)
 
     for page in pages:
-        print(page)
+        print(pages)
         
-growing_pages()
-
+    growing_pages()
 
 
