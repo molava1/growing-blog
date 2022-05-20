@@ -1,5 +1,9 @@
 #My_Home_Page.2
 
+#Necessary imports 
+import glob
+import os
+
 #Creating base template htmls 
 def template(*building_page_template):
     
@@ -20,26 +24,12 @@ def template(*building_page_template):
     
 template ()
 
-def main():   
-
-    content = open('./content/index.html').read()
-    index_html = template(content) 
-    open('index.html', 'w+').write(index_html)
-    
-    about_me = open('./content/about_me.html').read()
-    about_me_html = template(about_me)
-    open('about_me.html', 'w+').write(str(about_me_html))
-
-    contact_me = open('./content/contact_me.html').read()
-    contact_me_html = template(contact_me)
-    open('contact_me.html', 'w+').write(str(contact_me_html))
-    
-
-main()
+#TODO fix brokkkkkkken links by removing ./docs/ and commit changes 
+#TODO put def main lines into growing pages.. ie create a list containing your pages and loop them...
 
 
-#So this code grows your sitek data by adding multiple sets [LISTS].
-def growing_pages():
+#So this code grows your site data by adding multiple sets [LISTS].
+def main():
     pages = []
     pages.append([{
     "filename": "content/index.html",
@@ -55,15 +45,14 @@ def growing_pages():
     "output": "docs/contact_me.html",
     }])
     for page in pages:
-        print(pages)
+        all_html_files = glob.glob("docs/*.html")
+        template(all_html_files)
     
-growing_pages()
+main()
 
-import glob
 all_html_files = glob.glob("docs/*.html")
 print(all_html_files)
 
-import os
 file_path = "docs/about_me.html"
 file_name = os.path.basename(file_path)
 print(file_name)
