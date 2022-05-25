@@ -24,9 +24,6 @@ def template(*building_page_template):
     
 template ()
 
-#TODO fix brokkkkkkken links by removing ./docs/ and commit changes 
-#TODO put def main lines into growing pages.. ie create a list containing your pages and loop them...
-
 
 #So this code grows your site data by adding multiple sets [LISTS].
 def main():

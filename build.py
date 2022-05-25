@@ -18,15 +18,11 @@ def template(*building_page_template):
     index_content = open('./content/index.html').read() 
      
     finished_index_page = template.replace( '{{content}}', index_content)
-    open ('docs/index.html','w+').write(finished_index_page)
+    open ('./docs/index.html','w+').write(finished_index_page)
  
     return template 
     
 template ()
-
-#TODO fix brokkkkkkken links by removing ./docs/ and commit changes 
-#TODO put def main lines into growing pages.. ie create a list containing your pages and loop them...
-
 
 #So this code grows your site data by adding multiple sets [LISTS].
 def main():
